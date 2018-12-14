@@ -1,0 +1,38 @@
+{
+  "name": "diy-log",
+  "version": "1.0.0",
+  "description": "Log things, prefixed with a symbols or timestamp.",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo": "node ./example"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengqing723/diy-log.git"
+  },
+  "keywords": [
+    "log",
+    "logger",
+    "timestamp",
+    "print",
+    "console",
+    "symbols"
+  ],
+  "author": "lmq <mengqing723@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mengqing723/diy-log/issues"
+  },
+  "homepage": "https://github.com/mengqing723/diy-log#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "time-stamp": "^2.2.0"
+  }
+}
