@@ -1,6 +1,5 @@
 
 node_modules/
-example/
 
 yarn.lock
 package-lock.json
