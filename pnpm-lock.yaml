@@ -1,0 +1,43 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@types/node': ^18.7.18
+  is-unicode-supported: ^1.3.0
+  picocolors: ^1.0.0
+  time-stamp: ^2.2.0
+  typescript: ^4.8.3
+
+dependencies:
+  is-unicode-supported: 1.3.0
+  picocolors: 1.0.0
+  time-stamp: 2.2.0
+
+devDependencies:
+  '@types/node': 18.7.18
+  typescript: 4.8.3
+
+packages:
+
+  /@types/node/18.7.18:
+    resolution: {integrity: sha512-m+6nTEOadJZuTPkKR/SYK3A2d7FZrgElol9UP1Kae90VVU4a6mxnPuLiIW1m4Cq4gZ/nWb9GrdVXJCoCazDAbg==}
+    dev: true
+
+  /is-unicode-supported/1.3.0:
+    resolution: {integrity: sha512-43r2mRvz+8JRIKnWJ+3j8JtjRKZ6GmjzfaE/qiBJnikNnYv/6bagRJ1kUhNk8R5EX/GkobD+r+sfxCPJsiKBLQ==}
+    engines: {node: '>=12'}
+    dev: false
+
+  /picocolors/1.0.0:
+    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
+    dev: false
+
+  /time-stamp/2.2.0:
+    resolution: {integrity: sha512-zxke8goJQpBeEgD82CXABeMh0LSJcj7CXEd0OHOg45HgcofF7pxNwZm9+RknpxpDhwN4gFpySkApKfFYfRQnUA==}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
+  /typescript/4.8.3:
+    resolution: {integrity: sha512-goMHfm00nWPa8UvR/CPSvykqf6dVV8x/dp0c5mFTMTIu0u0FlGWRioyy7Nn0PGAdHxpJZnuO/ut+PpQ8UiHAig==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true

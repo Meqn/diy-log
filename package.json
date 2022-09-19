@@ -1,38 +1,43 @@
 {
   "name": "diy-log",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Log things, prefixed with a symbols or timestamp.",
-  "main": "lib/index.js",
+  "keywords": [
+    "log",
+    "logger",
+    "console",
+    "console.log",
+    "timestamp",
+    "print",
+    "symbols",
+    "log symbols"
+  ],
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": ["dist"],
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "demo": "node ./example"
-  },
-  "directories": {
-    "lib": "lib"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mengqing723/diy-log.git"
   },
-  "keywords": [
-    "log",
-    "logger",
-    "timestamp",
-    "print",
-    "console",
-    "symbols"
-  ],
-  "author": "lmq <mengqing723@gmail.com>",
+  "author": "Mervin <mengqing723@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mengqing723/diy-log/issues"
   },
   "homepage": "https://github.com/mengqing723/diy-log#readme",
   "dependencies": {
-    "chalk": "^2.4.1",
+    "is-unicode-supported": "^1.3.0",
+    "picocolors": "^1.0.0",
     "time-stamp": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.18",
+    "typescript": "^4.8.3"
   }
 }
