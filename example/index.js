@@ -1,4 +1,4 @@
-const log = require('../lib')
+const log = require('../dist')
 
 
 log('message ... ')
