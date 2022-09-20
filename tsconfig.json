@@ -20,7 +20,7 @@
 
     "lib": ["ESNext", "DOM"],
     "types": ["node"],
-    // "declaration": true,
+    "declaration": true,
     // "declarationDir": "./types"
   },
   "files": ["index.ts"]

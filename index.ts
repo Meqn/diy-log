@@ -1,8 +1,7 @@
 import colors from 'picocolors'
 import timestamp from 'time-stamp'
 
-// import isUnicodeSupported from 'is-unicode-supported'
-// https://github.com/sindresorhus/is-unicode-supported
+//see. https://github.com/sindresorhus/is-unicode-supported
 function isUnicodeSupported() {
   if (process.platform !== 'win32') {
     return process.env.TERM !== 'linux' // Linux console (kernel)
@@ -54,7 +53,6 @@ function logFn<F extends (...args: any[]) => void, P extends Parameters<F>>(
     process.stdout.write(prefix + ' ')
   }
   fn.apply(console, args)
-  // return this
 }
 
 function log() {
@@ -82,5 +80,5 @@ function warn() {
   return logFn(console.warn, [...arguments], symbols.warn)
 }
 
-export { log, time, info, error, success, warn, symbols, colors }
+export { log, time, info, error, success, warn, symbols, colors, timestamp }
 export default log
