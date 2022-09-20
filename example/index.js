@@ -1,14 +1,14 @@
-const dLog = require('diy-log')
-const { log, symbols, colors, timestamp } = dLog
+const logger = require('diy-log')
+const { log, symbols, colors, timestamp } = logger
 
 // console.log
-dLog.log('log ...')
-dLog.time('time ...')
+logger.log('log ...')
+logger.time('time ...')
 
-dLog.info('info ...')
-dLog.success('success ...')
-dLog.error('error ...')
-dLog.warn('warn ...')
+logger.info('info ...')
+logger.success('success ...')
+logger.error('error ...')
+logger.warn('warn ...')
 
 log(symbols.info, 'info ...')
 log(symbols.success, 'success ...')
