@@ -20,7 +20,13 @@ function isUnicodeSupported() {
   )
 }
 
-const symbols = (function () {
+interface Symbols {
+  info: string
+  success: string
+  warn: string
+  error: string
+}
+const symbols: Symbols = (function () {
   const main = {
     info: colors.blue('ℹ'),
     success: colors.green('✔'),
@@ -55,30 +61,17 @@ function logFn<F extends (...args: any[]) => void, P extends Parameters<F>>(
   fn.apply(console, args)
 }
 
-function log() {
-  return logFn(console.log, [...arguments])
-}
+type LogFunc = (...args: any[]) => void
 
-function time() {
+const log: LogFunc = (...args: any[]) => logFn(console.log, args)
+const time: LogFunc = (...args: any[]) => {
   const times = timestamp('HH:mm:ss')
-  return logFn(console.log, [...arguments], '[' + colors.gray(times) + ']')
+  logFn(console.log, args, '[' + colors.gray(times) + ']')
 }
-
-function info() {
-  return logFn(console.info, [...arguments], symbols.info)
-}
-
-function error() {
-  return logFn(console.error, [...arguments], symbols.error)
-}
-
-function success() {
-  return logFn(console.log, [...arguments], symbols.success)
-}
-
-function warn() {
-  return logFn(console.warn, [...arguments], symbols.warn)
-}
+const info: LogFunc = (...args: any[]) => logFn(console.info, args, symbols.info)
+const error: LogFunc = (...args: any[]) => logFn(console.error, args, symbols.error)
+const success: LogFunc = (...args: any[]) => logFn(console.log, args, symbols.success)
+const warn: LogFunc = (...args: any[]) => logFn(console.warn, args, symbols.warn)
 
 export { log, time, info, error, success, warn, symbols, colors, timestamp }
 export default log
