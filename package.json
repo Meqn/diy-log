@@ -1,6 +1,6 @@
 {
   "name": "diy-log",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Log things, prefixed with a symbols or timestamp.",
   "keywords": [
     "log",
