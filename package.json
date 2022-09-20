@@ -1,6 +1,6 @@
 {
   "name": "diy-log",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Log things, prefixed with a symbols or timestamp.",
   "keywords": [
     "log",
@@ -12,7 +12,6 @@
     "symbols",
     "log symbols"
   ],
-  "module": "dist/index.mjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -22,7 +21,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "tsup ./index.ts --format esm,cjs --dts"
+    "build": "tsc",
+    "demo": "node ./example/index.js"
   },
   "repository": {
     "type": "git",
@@ -35,13 +35,11 @@
   },
   "homepage": "https://github.com/mengqing723/diy-log#readme",
   "dependencies": {
-    "is-unicode-supported": "^1.3.0",
     "picocolors": "^1.0.0",
     "time-stamp": "^2.2.0"
   },
   "devDependencies": {
     "@types/node": "^18.7.18",
-    "tsup": "^6.2.3",
     "typescript": "^4.8.3"
   }
 }
