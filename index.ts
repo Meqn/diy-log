@@ -1,6 +1,25 @@
-import isUnicodeSupported from 'is-unicode-supported'
 import colors from 'picocolors'
 import timestamp from 'time-stamp'
+
+// import isUnicodeSupported from 'is-unicode-supported'
+// https://github.com/sindresorhus/is-unicode-supported
+function isUnicodeSupported() {
+  if (process.platform !== 'win32') {
+    return process.env.TERM !== 'linux' // Linux console (kernel)
+  }
+
+  return (
+    Boolean(process.env.CI) ||
+    Boolean(process.env.WT_SESSION) || // Windows Terminal
+    Boolean(process.env.TERMINUS_SUBLIME) || // Terminus (<0.2.27)
+    process.env.ConEmuTask === '{cmd::Cmder}' || // ConEmu and cmder
+    process.env.TERM_PROGRAM === 'Terminus-Sublime' ||
+    process.env.TERM_PROGRAM === 'vscode' ||
+    process.env.TERM === 'xterm-256color' ||
+    process.env.TERM === 'alacritty' ||
+    process.env.TERMINAL_EMULATOR === 'JetBrains-JediTerm'
+  )
+}
 
 const symbols = (function () {
   const main = {
@@ -18,7 +37,7 @@ const symbols = (function () {
   }
 
   return isUnicodeSupported() ? main : fallbacks
-}())
+})()
 
 /**
  * log函数
@@ -26,7 +45,11 @@ const symbols = (function () {
  * @param {array<any>} args 输出参数
  * @param {string} prefix 输出前缀
  */
- function logFn<F extends (...args: any[]) => void, P extends Parameters<F>>(fn: F, args: P, prefix?: string) {
+function logFn<F extends (...args: any[]) => void, P extends Parameters<F>>(
+  fn: F,
+  args: P,
+  prefix?: string
+) {
   if (prefix) {
     process.stdout.write(prefix + ' ')
   }
@@ -59,14 +82,5 @@ function warn() {
   return logFn(console.warn, [...arguments], symbols.warn)
 }
 
-export {
-  log,
-  time,
-  info,
-  error,
-  success,
-  warn,
-  symbols,
-  colors
-}
+export { log, time, info, error, success, warn, symbols, colors }
 export default log
