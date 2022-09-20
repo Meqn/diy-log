@@ -18,12 +18,12 @@ npm install diy-log --save-dev
 
 ```js
 // for cjs
-const dLog = require('diy-log')
-const { log, symbols, colors, timestamp } = dLog
+const logger = require('diy-log')
+const { log, symbols, colors, timestamp } = logger
 
 
 // for esm
-import dLog, {
+import logger, {
   log,
   colors,
   symbols,
@@ -32,13 +32,13 @@ import dLog, {
 ```
 
 ```js
-dLog.log('log ...')
-dLog.time('time ...')
+logger.log('message ...')
+logger.time('time ...')
 
-dLog.info('info ...')
-dLog.success('success ...')
-dLog.error('error ...')
-dLog.warn('warn ...')
+logger.info('info ...')
+logger.success('success ...')
+logger.error('error ...')
+logger.warn('warn ...')
 
 log(symbols.info, 'info ...')
 log(symbols.success, 'success ...')
