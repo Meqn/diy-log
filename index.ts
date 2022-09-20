@@ -34,37 +34,39 @@ const symbols = (function () {
   // return this
 }
 
-function log(args: any[]) {
-  return logFn(console.log, args)
+function log() {
+  return logFn(console.log, [...arguments])
 }
 
-function time(args: any[]) {
+function time() {
   const times = timestamp('HH:mm:ss')
-  return logFn(console.log, args, '[' + colors.gray(times) + ']')
+  return logFn(console.log, [...arguments], '[' + colors.gray(times) + ']')
 }
 
-function info(args: any[]) {
-  return logFn(console.info, args, symbols.info)
+function info() {
+  return logFn(console.info, [...arguments], symbols.info)
 }
 
-function error(args: any[]) {
-  return logFn(console.error, args, symbols.error)
+function error() {
+  return logFn(console.error, [...arguments], symbols.error)
 }
 
-function success(args: any[]) {
-  return logFn(console.log, args, symbols.success)
+function success() {
+  return logFn(console.log, [...arguments], symbols.success)
 }
 
-function warn(args: any[]) {
-  return logFn(console.warn, args, symbols.warn)
+function warn() {
+  return logFn(console.warn, [...arguments], symbols.warn)
 }
 
 export {
+  log,
   time,
   info,
   error,
   success,
   warn,
-  symbols
+  symbols,
+  colors
 }
 export default log
