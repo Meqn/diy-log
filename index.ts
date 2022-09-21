@@ -74,4 +74,4 @@ const success: LogFunc = (...args: any[]) => logFn(console.log, args, symbols.su
 const warn: LogFunc = (...args: any[]) => logFn(console.warn, args, symbols.warn)
 
 export { log, time, info, error, success, warn, symbols, colors, timestamp }
-export default log
+// export default log
