@@ -1,7 +1,7 @@
 import colors from 'picocolors'
 import timestamp from 'time-stamp'
 
-declare const symbols: {
+declare const Symbols: {
   info: string
   success: string
   warn: string
@@ -19,7 +19,7 @@ interface Logger {
   warn: LogFunc
   colors: typeof colors
   timestamp: typeof timestamp
-  symbols: typeof symbols
+  symbols: typeof Symbols
 }
 
 declare const log: Logger
