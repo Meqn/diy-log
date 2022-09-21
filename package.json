@@ -1,6 +1,6 @@
 {
   "name": "diy-log",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Log things, prefixed with a symbols or timestamp.",
   "keywords": [
     "log",
@@ -13,9 +13,10 @@
     "log symbols"
   ],
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "engines": {
     "node": ">=10"
