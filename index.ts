@@ -1,4 +1,5 @@
 import colors from 'picocolors'
+import type Picocolors from 'picocolors'
 import timestamp from 'time-stamp'
 
 //see. https://github.com/sindresorhus/is-unicode-supported
@@ -22,6 +23,7 @@ function isUnicodeSupported() {
 
 interface Symbols {
   info: string
+  done: string
   success: string
   warn: string
   error: string
@@ -29,6 +31,7 @@ interface Symbols {
 const symbols: Symbols = (function () {
   const main = {
     info: colors.blue('ℹ'),
+    done: colors.green('✔'),
     success: colors.green('✔'),
     warn: colors.yellow('⚠'),
     error: colors.red('✖')
@@ -36,6 +39,7 @@ const symbols: Symbols = (function () {
 
   const fallbacks = {
     info: colors.blue('i'),
+    done: colors.green('√'),
     success: colors.green('√'),
     warn: colors.yellow('‼'),
     error: colors.red('×')
@@ -70,8 +74,42 @@ const time: LogFunc = (...args: any[]) => {
 }
 const info: LogFunc = (...args: any[]) => logFn(console.info, args, symbols.info)
 const error: LogFunc = (...args: any[]) => logFn(console.error, args, symbols.error)
-const success: LogFunc = (...args: any[]) => logFn(console.log, args, symbols.success)
+const done: LogFunc = (...args: any[]) => logFn(console.log, args, symbols.done)
 const warn: LogFunc = (...args: any[]) => logFn(console.warn, args, symbols.warn)
 
-export { log, time, info, error, success, warn, symbols, colors, timestamp }
-export default { log, time, info, error, success, warn, symbols, colors, timestamp }
+//== tags =========================================================
+type TagTypeFunc = (message: string, label?: string) => void
+interface ITagTypes {
+  info: TagTypeFunc,
+  warn: TagTypeFunc,
+  done: TagTypeFunc,
+  error: TagTypeFunc,
+  success?: TagTypeFunc
+}
+interface ITag extends ITagTypes {
+  (message: string, type: keyof ITagTypes, label?: string): void
+}
+
+function tagFn(
+  message: string,
+  label: string,
+  fn: (...args: any[]) => void,
+  bgColorFn: typeof Picocolors.blue,
+  colorFn?: typeof Picocolors.blue
+) {
+  const labelStr = bgColorFn.call(colors, colors.black(` ${label} `))
+  fn.call(console, labelStr, typeof colorFn === 'function' ? colorFn.call(colors, message) : message)
+}
+
+const tag: ITag = (message, type = 'info', label) => {
+  label = label ?? type.toLocaleUpperCase()
+  return tag[type]?.call(this, message, label)
+}
+
+tag.info = (message, label) => tagFn(message, label ? label : 'info'.toLocaleUpperCase(), console.info, colors.bgBlue)
+tag.done = tag.success = (message, label) => tagFn(message, label ? label : 'done'.toLocaleUpperCase(), console.log, colors.bgGreen)
+tag.warn = (message, label) => tagFn(message, label ? label : 'warn'.toLocaleUpperCase(), console.warn, colors.bgYellow, colors.yellow)
+tag.error = (message, label) => tagFn(message, label ? label : 'error'.toLocaleUpperCase(), console.error, colors.bgRed, colors.red)
+
+export { log, time, info, error, done, done as success, warn, symbols, colors, tag, timestamp }
+export default { log, time, info, error, done, warn, symbols, colors, tag, timestamp }
