@@ -1,29 +1,30 @@
-const logger = require('diy-log')
-const { log, symbols, colors, timestamp } = logger
+const logger = require('../dist/index')
+const { log, info, done, warn, error, symbols, colors, tag } = logger
 
-// console.log
-logger.log('log ...')
+log('==========================: symbols')
 logger.time('time ...')
 
-logger.info('info ...')
-logger.success('success ...')
-logger.error('error ...')
-logger.warn('warn ...')
+info('info ...')
+done('done ...')
+error('error ...')
+warn('warn ...')
 
-log(symbols.info, 'info ...')
-log(symbols.success, 'success ...')
-log(symbols.error, 'error ...')
-log(symbols.warn, 'warn ...')
-
+logger.log('==========================: colors')
 // see `picocolors`
 log(
+  colors.dim('dim:text;'),
   colors.blue('color: blue;'),
-  colors.bgGreen('bgcolor: green;'),
-  colors.bold('font-weight: bold;'),
-  colors.italic('font-style: italic')
+  colors.bgGreen(' bgcolor: green; ')
+)
+log(
+  colors.bold('bold:text;'),
+  colors.italic('italic:text;'),
+  colors.underline('underline:text;')
 )
 
-// see `time-stamp`
-log(
-  colors.bgRed(timestamp('YYYY/MM/DD HH:mm:ss, ms'))
-)
+log('==========================: tags')
+tag('info message\n')
+tag.warn('warning message\n')
+tag.done('done message\n')
+tag.info(colors.blue('info message\n'))
+tag.error('error message\n')
