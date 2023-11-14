@@ -1,16 +1,18 @@
 {
   "name": "diy-log",
   "version": "2.4.1",
-  "description": "Log things, prefixed with a symbols or timestamp.",
+  "description": "Various console log level prefixes with support for color symbols and tags.",
   "keywords": [
     "log",
     "logger",
+    "colors",
     "console",
-    "console.log",
-    "timestamp",
-    "print",
     "symbols",
-    "log symbols"
+    "tags",
+    "console.log",
+    "log symbols",
+    "logging",
+    "terminal"
   ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -25,7 +27,8 @@
   "scripts": {
     "tsc": "tsc",
     "build": "rm -rf dist && tsup ./index.ts --dts --format cjs,esm",
-    "demo": "node ./example/index.js"
+    "demo": "node ./example/index.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -43,7 +46,11 @@
   },
   "devDependencies": {
     "@types/node": "^18.7.18",
+    "@types/jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "tsup": "^6.7.0",
-    "typescript": "^4.8.3"
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.5"
   }
 }
