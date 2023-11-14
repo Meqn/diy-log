@@ -4,7 +4,7 @@
     "outDir": "dist",
 		"moduleResolution": "node",
     "sourceMap": false,
-    "target": "es2017",
+    "target": "es2015",
 		"module": "commonjs",
     "strict": true,
 
@@ -19,7 +19,7 @@
     "removeComments": true,
 
     "lib": ["ESNext", "DOM"],
-    "types": ["node"],
+    "types": ["node", "jest"],
     // "declaration": true,
     // "declarationDir": "./types"
   },
