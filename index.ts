@@ -87,7 +87,7 @@ interface ITagTypes {
   success?: TagTypeFunc
 }
 interface ITag extends ITagTypes {
-  (message: string, type: keyof ITagTypes, label?: string): void
+  (message: string, type?: keyof ITagTypes, label?: string): void
 }
 
 function tagFn(
