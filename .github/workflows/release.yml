@@ -46,9 +46,14 @@ jobs:
       - name: CI
         run: |
           pnpm install
-          pnpm test
+          pnpm test -- --coverage
           pnpm build
         if: ${{ steps.release.outputs.release_created }}
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - run: npm publish
         env:
