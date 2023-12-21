@@ -32,14 +32,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mengqing723/diy-log.git"
+    "url": "git+https://github.com/meqn/diy-log.git"
   },
   "author": "Mervin <mengqing723@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mengqing723/diy-log/issues"
+    "url": "https://github.com/meqn/diy-log/issues"
   },
-  "homepage": "https://github.com/mengqing723/diy-log#readme",
+  "homepage": "https://github.com/meqn/diy-log#readme",
   "dependencies": {
     "picocolors": "^1.0.0",
     "time-stamp": "^2.2.0"
