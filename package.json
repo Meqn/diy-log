@@ -1,6 +1,6 @@
 {
   "name": "diy-log",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "Various console log level prefixes with support for color symbols and tags.",
   "keywords": [
     "log",
